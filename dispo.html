@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Calendrier de réservation</title>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
+    <style>
+ body {
+    background-color: #0a3491;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+
+
+            }     
+              
+            
+        /* Ajoutez vos styles CSS personnalisés ici */
+        #calendar {
+            height: 400px;
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+
+        }
+
+        .fc-header, .fc-footer {
+            display: none;
+        }
+
+        .fc-view-container {
+            padding: 0;
+        }
+        ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 80px;
+            }
+         
+            .reo {
+                text-decoration: none;
+                color: white;
+                font-size: 1.2em;
+                padding: 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+                margin: 0 10px;
+
+            
+            }
+            .reo:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+        
+    </style>
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <ul>
+        <li><a href="index.html" class="reo">Accueil </a></li>
+        <li><a href="reser.php"class="reo">Réservation</a></li>
+        <li><a href=""class="reo">Disponibilité</a></li>
+    </ul>
+    <div id="calendar"></div>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Fonction pour charger les événements depuis le serveur
+            function loadEvents() {
+                $.ajax({
+                    url: 'load-events.php', // URL du fichier PHP qui renvoie les événements
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        // Mettre à jour les événements du calendrier
+                        $('#calendar').fullCalendar('removeEvents');
+                        $('#calendar').fullCalendar('addEventSource', response);
+                        $('#calendar').fullCalendar('rerenderEvents');
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(status + ': ' + error);
+                    }
+                });
+            }
+
+            // Initialiser le calendrier
+            $('#calendar').fullCalendar({
+                // Configuration du calendrier
+                // Vous pouvez personnaliser les options selon vos besoins
+                events: '/load-events.php', // URL pour charger les événements depuis le serveur
+                eventSources: [{
+                    url: '/load-events.php', // URL pour charger les événements lors de la navigation dans le calendrier
+                    type: 'GET',
+                    dataType: 'json'
+                }]
+               
+            });
+             // Initialiser le calendrier
+             $('#calendar').fullCalendar({
+                height: '200px', // Spécifiez une hauteur fixe en pixels
+              weekNumbers: false, // Désactiver l'affichage des numéros de semaine
+               contentHeight: 'auto', // Ajuster la hauteur du contenu automatiquement
+               scrollTime: '08:00:00', // Définir l'heure de début du défilement horizontal
+    // Autres options de configuration...
+});
+           
+
+            // Charger les événements initiaux
+            loadEvents();
+
+            // Rafraîchir les événements toutes les 5 secondes (ou à une fréquence de votre choix)
+            setInterval(function() {
+                loadEvents();
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

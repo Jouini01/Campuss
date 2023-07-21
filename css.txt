@@ -1,0 +1,19 @@
+https://doodad.dev/pattern-generator/
+
+border-radius: 30px;
+
+
+
+ <input type="text" id="nom"placeholder="Pays" required />
+        <input type="text" id="nom"placeholder="Numero de telephone" required />
+        <input type="email" id="nom"placeholder="Adresse email" required />
+        <h2>Informations de reservation</h2>
+        <input type="text" placeholder="Nombre des personnes" required />
+        <input type="text" placeholder="Nombre de nuit" required />
+        <input type="date" placeholder="Date de debut " required />
+        <input type="date" placeholder="Date de fin" required />
+
+http://localhost/projet/index.html
+
+
+10.194.175.202

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title> Robert Doisneau </title>
+       
+        <style>
+ 
+ 
+  /*le titre*/
+            h1 {
+    background: linear-gradient(to right, rgb(7, 150, 245), rgb(255, 255, 255));
+    color: rgb(7, 150, 245);
+    text-align: center;
+    font-size: 4em;
+    margin-top: 0em;
+    font-family: "Fantasy", chalkduster, sans-serif;
+        -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+           }
+                  
+            /*couleur de la couverture et le placemepnt des util*/
+            body {
+                background-color: #0a3491;
+background-image:
+radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+            }     
+            .fond {
+                border-radius: 30px;
+
+            }      
+            /* taille des 2 image et l'espace*/
+            .image {
+                width: 300px;
+                height: 200px;
+                margin: 0 20px;
+                
+
+            }
+            /* effet des 2 images */
+            .image:hover {   
+                transform: scale(1.1);
+
+            }
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 80px;
+            }
+         
+            .reo {
+                text-decoration: none;
+                color: white;
+                font-size: 1.2em;
+                padding: 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+                margin: 0 10px;
+
+            
+            }
+            .reo:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+          
+            footer {
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        margin-top: auto;
+        width: 100%;
+    }
+    
+    .footer-text {
+        font-size: 1em;
+        text-align: center;
+        margin: 0;
+    }
+        </style>
+    </head>
+    <body>
+        
+        <img src="Campus.jpg" class="fond">
+           <!-- Barre de navigation -->
+           <ul>
+            <li><a href="index.html" class="reo">Accueil </a></li>
+            <li><a href="reser.php"class="reo">Réservation</a></li>
+            <li><a href="dispo.html"class="reo">Disponibilité</a></li>
+        </ul>
+        <H1> Bienvenue à Robert Doisneau ! </H1>
+        <div>
+            
+            <div class="main">
+            <a href="reser.php">
+            <img src="reservation.jpg" class="image">
+            </a>
+            <a href="dispo.html">
+            <img src="dispo.jpg" class="image">
+            </a>
+           
+        </div>
+        <footer>
+            <p class="footer-text"> © 2023 Lycée Robert Doisneau. </p>
+        </footer>
+    </body>
+</html>
